@@ -1,15 +1,11 @@
 import type { Metadata } from "next";
-import { Fraunces, Outfit } from "next/font/google";
+import { Roboto } from "next/font/google";
 import "./globals.css";
 
-const display = Fraunces({
-  variable: "--font-display",
-  subsets: ["latin"],
-});
-
-const sans = Outfit({
+const roboto = Roboto({
   variable: "--font-sans",
   subsets: ["latin"],
+  weight: ["400", "500", "700"],
 });
 
 export const metadata: Metadata = {
@@ -24,11 +20,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="en"
-      className={`${display.variable} ${sans.variable} h-full antialiased`}
-    >
-      <body className="min-h-full flex flex-col">{children}</body>
+    <html lang="en" className={`${roboto.variable} h-full antialiased`}>
+      <body className="min-h-full flex flex-col font-sans">{children}</body>
     </html>
   );
 }

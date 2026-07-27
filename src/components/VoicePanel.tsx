@@ -177,7 +177,7 @@ export function VoicePanel({ itinerary, localLines, onAgentAction }: Props) {
           aria-hidden
         />
         <div>
-          <p className="voice-panel__title">Vocal Bridge</p>
+          <p className="voice-panel__title">Voice recovery</p>
           <p className="voice-status" role="status">
             {placingCall
               ? `Dialing ${travelerPhone ? formatPhone(travelerPhone) : "traveler"}…`

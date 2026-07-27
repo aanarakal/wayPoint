@@ -244,21 +244,24 @@ function WaypointDashboard() {
 
   return (
     <div className="wp">
-      <header className="wp-hero">
+      <header className={itinerary ? "wp-hero wp-hero--compact" : "wp-hero"}>
+        {!itinerary && <p className="wp-kicker">Travel recovery</p>}
         <p className="wp-logo">WayPoint</p>
-        <p className="wp-tagline">
-          When a connection breaks, recover the whole trip by voice — flight,
-          car, hotel, and PayPal — on one live screen.
-        </p>
+        {!itinerary && (
+          <p className="wp-tagline">
+            When a connection breaks, recover the whole trip by voice — flight,
+            car, hotel, and PayPal — on one live screen.
+          </p>
+        )}
       </header>
 
       {!itinerary ? (
         <section className="wp-ingest">
           <div className="wp-ingest__copy">
-            <h1>Upload your itinerary</h1>
+            <h1>Start with your itinerary</h1>
             <p>
-              Landing AI parses the PDF into a live itinerary. Or load the hero
-              demo: SFO → DEN → AUS with car and hotel in Austin.
+              Parse a PDF into a live trip board, or load the SFO → DEN → AUS
+              demo with car and hotel in Austin.
             </p>
           </div>
           <div className="wp-ingest__actions">
@@ -268,7 +271,7 @@ function WaypointDashboard() {
               disabled={busy === "ingest"}
               onClick={() => void loadDemo()}
             >
-              {busy === "ingest" ? "Parsing…" : "Load hero demo"}
+              {busy === "ingest" ? "Parsing…" : "Load demo trip"}
             </button>
             <button
               type="button"

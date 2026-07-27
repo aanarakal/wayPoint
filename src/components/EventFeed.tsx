@@ -6,9 +6,11 @@ export function EventFeed({ events }: { events: ItineraryEvent[] }) {
   const ordered = [...events].reverse();
   return (
     <section className="event-feed" aria-label="Live recovery feed">
-      <h2>Live feed</h2>
+      <h2>Recovery activity</h2>
       {ordered.length === 0 ? (
-        <p className="event-feed__empty">Events will stream here.</p>
+        <p className="event-feed__empty">
+          Disruption, rebook, and payment events appear here.
+        </p>
       ) : (
         <ol className="event-feed__list">
           {ordered.map((evt) => (
